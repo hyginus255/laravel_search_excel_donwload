@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Customers;
 use App\OrderLines;
 use App\Orders;
-use App\Exports\OrdersExport;
-use Maatwebsite\Excel\Facades\Excel;
 
 class ExportController extends Controller
 {
@@ -22,10 +20,9 @@ class ExportController extends Controller
 
         $from = $request->from;
         $to = $request->to;
-        $dates = ['from'=>$from,'to'=>$to];
 
-        // $orders = Orders::whereBetween('orderDate', [$this->dates['from'], $this->dates['to']])->get();
+        $orders = Orders::whereBetween('orderDate', [$from, $to])->get();
 
-        return Excel::download(new OrdersExport($dates), 'oders.xlsx');
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 }
