@@ -130,16 +130,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($orders as $order)
                                     <tr>
-                                        <td>order Number</td>
-                                        <td>Order Date</td>
-                                        <td>Quantity Order</td>
-                                        <td>Total Price</td>
-                                        <td>Customer Name</td>
-                                        <td>Customer Phone</td>
+                                        <td>{{$order->orderNumber}}</td>
+                                        <td>{{$order->orderDate}}</td>
+                                        <td>{{$order->orderLine->quantityOrdered}}</td>
+                                        <td>$ {{$order->orderLine->sum('priceEach')}}</td>
+                                        <td>{{$order->customer->customerName}}</td>
+                                        <td>{{$order->customer->phone}}</td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+                            {{ $orders->links() }}
                         </div>
                     </div>
                 </div>

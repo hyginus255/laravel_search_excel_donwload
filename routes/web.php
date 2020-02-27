@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ExportController@index');
 
 
 Route::post('/download', 'ExportController@export')->name('download');
