@@ -22,6 +22,6 @@ class OrdersExport implements FromCollection
     public function collection()
     {
         // dd($this->dates['from']);
-        dd( Orders::query()->whereBetween('orderDate', [$this->dates['from'], $this->dates['to']])->get());
+        return Orders::query()->whereBetween('orderDate', [$this->dates['from'], $this->dates['to']])->get();
     }
 }
