@@ -26,6 +26,6 @@ class ExportController extends Controller
 
         // $orders = Orders::whereBetween('orderDate', [$from, $to])->get();
 
-        return Excel::download(new OrdersExport($dates), 'users.xlsx');
+        return Excel::download(new OrdersExport($dates), 'orders.xlsx');
     }
 }
