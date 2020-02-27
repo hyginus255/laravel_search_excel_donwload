@@ -87,7 +87,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Sales Records
+                    Orders Records
                 </div>
                 <div class="row">
                     <div class="container">
