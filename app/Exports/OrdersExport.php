@@ -41,14 +41,13 @@ class OrdersExport implements FromQuery, WithHeadings, WithMapping
     {
         
         foreach($orders as $order){
-            dd($order);
             return [
                 $order['orderNumber'],
-                // $order->orderDate,
-                // $order->orderLine->quantityOrdered,
-                // $order->orderLine->sum('priceEach'),
-                // $order->customer->customerName,
-                // $order->customer->phone,
+                $order->orderDate,
+                $order->orderLine->quantityOrdered,
+                $order->orderLine->sum('priceEach'),
+                $order->customer->customerName,
+                $order->customer->phone,
             ];
         }
     }
